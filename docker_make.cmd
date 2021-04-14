@@ -1,0 +1,1 @@
+docker exec -t --privileged=true -u dev -w /home/dev/extdisk/hcitooladv fwrt-build-r1 /home/dev/toolchain-h3.sh %1 %2 %3
