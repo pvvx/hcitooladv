@@ -2454,7 +2454,7 @@ static int print_advertising_devices(int dd, uint8_t filter_type, uint8_t adv_fl
 		evt_le_meta_event *meta;
 		le_advertising_info *info;
 		char addr[18];
-		char adv[32*2];
+		char adv[32*2+4];
 
 		while ((len = read(dd, buf, sizeof(buf))) < 0) {
 			if (errno == EINTR && signal_received == SIGINT) {
@@ -2482,7 +2482,7 @@ static int print_advertising_devices(int dd, uint8_t filter_type, uint8_t adv_fl
 			ba2str(&info->bdaddr, addr);
 			if(adv_flg) {
 
-				hex2str(adv, sizeof(adv), info->data, info->length);
+				hex2str(adv, sizeof(adv), info->data, info->length + 1); // +rssi
 				printf("%s-%s\n", addr, adv);
 
 			} else {

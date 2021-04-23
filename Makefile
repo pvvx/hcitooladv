@@ -1,7 +1,7 @@
 # Include Makefile
 
 # Compiler Flag
-#CC=gcc
+CC=gcc
 # Object link
 TARGET  = hcitooladv
 OBJ_LIB = hcitooladv.o lib/bluetooth.o lib/hci.o
